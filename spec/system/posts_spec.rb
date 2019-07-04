@@ -12,11 +12,13 @@ RSpec.feature 'Posts', type: :system do
 
     it 'To Show H1 informations' do
       visit posts_path
+      sleep(1)
       expect(page).to have_content 'Posts'
     end
 
     it 'To Show Posts informations' do
       visit posts_path
+      sleep(1)
       expect(page).to have_content @post.title
     end
   end
@@ -24,6 +26,7 @@ RSpec.feature 'Posts', type: :system do
   context 'with new action' do
     it 'To Show new Post form' do
       visit new_post_path
+      sleep(1)
       expect(page).to have_content 'New Post'
     end
 
@@ -32,6 +35,7 @@ RSpec.feature 'Posts', type: :system do
       fill_in "post[name]", with: 'test name'
       fill_in "post[title]", with: 'test title'
       fill_in "post[content]", with: 'test content'
+      sleep(1)
       click_button 'Create Post'
       expect(page).to have_content 'Post was successfully created.'
     end
